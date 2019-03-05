@@ -5,8 +5,14 @@
 	<nav id="nav">
 		<ul>
 			<li><%= link_to "Home", root_path %></a></li>
-	    <li id="registro"><%= link_to "Registrate", registro_path %></li>
-			<li id="sesion"><%= link_to "Inicia sesion", sesion_path %></li>
+			<% if user_signed_in?  %>
+				<li><%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete %></li>
+			<% elsif driver_signed_in?  %>
+				<li><%= link_to "Cerrar sesion", destroy_driver_session_path, method: :delete %></li> 
+			<% else %>
+				<li id="registro"><%= link_to "Registrate", registro_path %></li>
+				<li id="sesion"><%= link_to "Inicia sesion", sesion_path %></li>
+			<% end %>
 		</ul>
   </nav>
 </div>
