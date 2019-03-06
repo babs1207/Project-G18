@@ -17,6 +17,10 @@
 //= breakpoints.min
 //= util
 //= main
+<<<<<<< HEAD
+=======
+
+>>>>>>> plantilla
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
