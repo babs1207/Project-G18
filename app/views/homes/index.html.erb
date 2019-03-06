@@ -1,1 +1,105 @@
-	
+	<body class="landing is-preload">
+			<!-- Banner -->
+				<section id="banner">
+					<h2>UBERTAIL</h2>
+					<p>App para solicitar servicios de entrega, de productos comprados en tiendas con tipo de despacho retiro en tienda</p>
+					<ul class="actions special">
+						<li><%= link_to "Inicia sesion", sesion_path, class:"button primary" %></li>
+      			<li><%= link_to "Registrate", registro_path, class:"button" %></li>
+					</ul>
+				</section>
+
+			<!-- Main -->
+				<section id="main" class="container">
+					<section class="box special">
+						<header class="major">
+							<h2>Controla el tiempo de retiro y recepcion de tus productos</h2>
+						</header>
+						<span class="image featured"><img src="https://3cero.com/wp-content/uploads/2014/10/La-importancia-del-servicio-de-entrega-a-domicilio.jpg" alt="" /></span>
+					</section>
+
+					<section class="box special features">
+						<div class="features-row">
+							<section>
+								<span class="icon major fas fa-car"></span>
+								<h3>Diversos medios de transportes</h3>
+								<p>Los cuales se adapten a las dimensiones del envio, para lograr una mayor seguridad y eficacia del servicio</p>
+							</section>
+							<section>
+								<span class="icon major fa-area-chart accent3"></span>
+								<h3>Ipsum dolor</h3>
+								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+							</section>
+						</div>
+						<div class="features-row">
+							<section>
+								<span class="icon major fa-cloud accent4"></span>
+								<h3>Sed feugiat</h3>
+								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+							</section>
+							<section>
+								<span class="icon major fa-lock accent5"></span>
+								<h3>Seguridad y eficacia</h3>
+								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+							</section>
+						</div>
+					</section>
+
+					<div class="row">
+						<div class="col-6 col-12-narrower">
+
+							<section class="box special">
+								<span class="image featured"><img src="https://gananci.com/wp-content/uploads/2017/07/mensajero-entregando-paquete.jpg" alt="" /></span>
+								<h3>Registrate como usuario</h3>
+								<p>Podras recibir tus productos desde tu comodidad realizando solicitudes, siguiendo el status de estas.</p>
+								<ul class="actions special">
+ 									<li><%= link_to "Registrate como solicitante ", new_user_registration_path, class:"button alt" %></li>
+								</ul>
+							</section>
+
+						</div>
+						<div class="col-6 col-12-narrower">
+
+							<section class="box special">
+								<span class="image featured"><img src="http://umzug-nrw.koeln/assets/img/cover-services.jpg" alt="" /></span>
+								<h3>Registrate como conductor</h3>
+								<p>Podras aceptar y realizar entregas con diferentes medios de transportes, generando más ingresos por entregas</p>
+								<ul class="actions special">
+									</li><%= link_to "Registrate como conductor", new_driver_registration_path, class:"button alt" %></li>
+								</ul>
+							</section>
+
+						</div>
+					</div>
+
+				</section>
+
+			<!-- CTA -->
+				<section id="cta">
+
+					<h2>Sign up for beta access</h2>
+					<p>Blandit varius ut praesent nascetur eu penatibus nisi risus faucibus nunc.</p>
+
+					<form>
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-8 col-12-mobilep">
+								<input type="email" name="email" id="email" placeholder="Email Address" />
+							</div>
+							<div class="col-4 col-12-mobilep">
+								<input type="submit" value="Sign Up" class="fit" />
+							</div>
+						</div>
+					</form>
+
+				</section>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+					</ul>
+				</footer>
+		</div>
+	</body>
