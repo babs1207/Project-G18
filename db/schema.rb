@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_06_135200) do
+ActiveRecord::Schema.define(version: 2019_03_06_153338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,14 +50,14 @@ ActiveRecord::Schema.define(version: 2019_03_06_135200) do
     t.bigint "payment_id"
     t.bigint "store_id"
     t.bigint "statement_id"
-    t.text "starting_point"
-    t.float "gps_starting_point"
-    t.text "end_point"
+    t.string "starting_point"
+    t.float "gps_starting"
+    t.string "end_point"
     t.float "gps_end_point"
+    t.text "order_description"
     t.boolean "paid"
     t.boolean "cancelled"
     t.decimal "price"
-    t.text "order_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["driver_id"], name: "index_requests_on_driver_id"

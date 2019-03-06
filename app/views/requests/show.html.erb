@@ -2,7 +2,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @request.user %>
+  <%= @request.user.name %>
 </p>
 
 <p>
@@ -31,18 +31,13 @@
 </p>
 
 <p>
-  <strong>Gps starting point:</strong>
-  <%= @request.gps_starting_point %>
-</p>
-
-<p>
   <strong>End point:</strong>
   <%= @request.end_point %>
 </p>
 
 <p>
-  <strong>Gps end point:</strong>
-  <%= @request.gps_end_point %>
+  <strong>Order description:</strong>
+  <%= @request.order_description %>
 </p>
 
 <p>
@@ -58,11 +53,6 @@
 <p>
   <strong>Price:</strong>
   <%= @request.price %>
-</p>
-
-<p>
-  <strong>Order description:</strong>
-  <%= @request.order_description %>
 </p>
 
 <%= link_to 'Edit', edit_request_path(@request) %> |

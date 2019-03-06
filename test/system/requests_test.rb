@@ -18,7 +18,7 @@ class RequestsTest < ApplicationSystemTestCase
     fill_in "Driver", with: @request.driver_id
     fill_in "End point", with: @request.end_point
     fill_in "Gps end point", with: @request.gps_end_point
-    fill_in "Gps starting point", with: @request.gps_starting_point
+    fill_in "Gps starting", with: @request.gps_starting
     fill_in "Order description", with: @request.order_description
     fill_in "Paid", with: @request.paid
     fill_in "Payment", with: @request.payment_id
@@ -41,7 +41,7 @@ class RequestsTest < ApplicationSystemTestCase
     fill_in "Driver", with: @request.driver_id
     fill_in "End point", with: @request.end_point
     fill_in "Gps end point", with: @request.gps_end_point
-    fill_in "Gps starting point", with: @request.gps_starting_point
+    fill_in "Gps starting", with: @request.gps_starting
     fill_in "Order description", with: @request.order_description
     fill_in "Paid", with: @request.paid
     fill_in "Payment", with: @request.payment_id

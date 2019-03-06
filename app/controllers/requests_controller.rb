@@ -25,6 +25,7 @@ class RequestsController < ApplicationController
   # POST /requests.json
   def create
     @request = Request.new(request_params)
+    @request.user = current_user
 
     respond_to do |format|
       if @request.save
@@ -69,6 +70,6 @@ class RequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
-      params.require(:request).permit(:user_id, :driver_id, :payment_id, :store_id, :statement_id, :starting_point, :gps_starting_point, :end_point, :gps_end_point, :paid, :cancelled, :price, :order_description)
+      params.require(:request).permit(:starting_point, :end_point, :order_description)
     end
 end

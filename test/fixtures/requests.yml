@@ -6,14 +6,14 @@ one:
   payment: one
   store: one
   statement: one
-  starting_point: MyText
-  gps_starting_point: 1.5
-  end_point: MyText
+  starting_point: MyString
+  gps_starting: 1.5
+  end_point: MyString
   gps_end_point: 1.5
+  order_description: MyText
   paid: false
   cancelled: false
   price: 9.99
-  order_description: MyText
 
 two:
   user: two
@@ -21,11 +21,11 @@ two:
   payment: two
   store: two
   statement: two
-  starting_point: MyText
-  gps_starting_point: 1.5
-  end_point: MyText
+  starting_point: MyString
+  gps_starting: 1.5
+  end_point: MyString
   gps_end_point: 1.5
+  order_description: MyText
   paid: false
   cancelled: false
   price: 9.99
-  order_description: MyText

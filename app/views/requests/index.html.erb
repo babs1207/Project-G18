@@ -11,13 +11,10 @@
       <th>Store</th>
       <th>Statement</th>
       <th>Starting point</th>
-      <th>Gps starting point</th>
       <th>End point</th>
-      <th>Gps end point</th>
-      <th>Paid</th>
-      <th>Cancelled</th>
-      <th>Price</th>
       <th>Order description</th>
+      <th>Paid</th>
+      <th>Price</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -25,19 +22,16 @@
   <tbody>
     <% @requests.each do |request| %>
       <tr>
-        <td><%= request.user %></td>
-        <td><%= request.driver %></td>
+        <td><%= request.user.name %></td>
+        <td><%= request.driver%></td>
         <td><%= request.payment %></td>
         <td><%= request.store %></td>
         <td><%= request.statement %></td>
         <td><%= request.starting_point %></td>
-        <td><%= request.gps_starting_point %></td>
         <td><%= request.end_point %></td>
-        <td><%= request.gps_end_point %></td>
-        <td><%= request.paid %></td>
-        <td><%= request.cancelled %></td>
-        <td><%= request.price %></td>
         <td><%= request.order_description %></td>
+        <td><%= request.paid %></td>
+        <td><%= request.price %></td>
         <td><%= link_to 'Show', request %></td>
         <td><%= link_to 'Edit', edit_request_path(request) %></td>
         <td><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>

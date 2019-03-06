@@ -1,7 +1,7 @@
 class Request < ApplicationRecord
   belongs_to :user
-  belongs_to :driver
-  belongs_to :payment
-  belongs_to :store
-  belongs_to :statement
+  belongs_to :driver, optional: true
+  belongs_to :payment, optional:true
+  belongs_to :store, optional:true
+  belongs_to :statement, optional:true
 end
