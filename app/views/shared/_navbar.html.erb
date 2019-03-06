@@ -1,15 +1,15 @@
 <header id="header" class="alt">
-<nav id="nav">
-  <ul>
-    <% if user_signed_in? %>
-      <li><%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete , class:"button" %></li>
-    <% elsif driver_signed_in? %>
-      <li><%= link_to "Cerrar sesion", destroy_driver_session_path, method: :delete , class:"button" %></li>
-    <% else %>
-      <li><%= link_to "HOME", root_path %></a></li>
-      <li><%= link_to "Inicia sesion", sesion_path, class:"button" %></li>
-      <li><%= link_to "Registrate", registro_path, class:"button" %></li>
-    <% end %>
-    </ul>
-  </nav>
-</header>
+  <nav id="nav">
+    <ul>
+      <% if user_signed_in? %>
+        <li><%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete , class:"button" %></li>
+      <% elsif driver_signed_in? %>
+        <li><%= link_to "Cerrar sesion", destroy_driver_session_path, method: :delete , class:"button" %></li>
+      <% else %>
+        <li><%= link_to "HOME", root_path %></a></li>
+        <li><%= link_to "Inicia sesion", sesion_path, class:"button" %></li>
+        <li><%= link_to "Registrate", registro_path, class:"button" %></li>
+      <% end %>
+      </ul>
+    </nav>
+  </header>
