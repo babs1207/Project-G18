@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
 <p>
   <strong>User:</strong>
@@ -40,6 +40,16 @@
   <%= @request.order_description %>
 </p>
 
+<% if @request.documents.attached? %>
+  <p>
+  <strong>Documents:</strong>
+  <br>
+  <% @request.documents.each do |document| %>
+    <li><%= image_tag document.variant(resize: "300x300") %></li>
+  <% end %>
+  </p>
+<% end %>
+
 <p>
   <strong>Paid:</strong>
   <%= @request.paid %>
@@ -57,3 +67,5 @@
 
 <%= link_to 'Edit', edit_request_path(@request) %> |
 <%= link_to 'Back', requests_path %>
+
+</div>
