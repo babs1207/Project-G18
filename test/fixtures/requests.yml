@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  driver: one
+  payment: one
+  store: one
+  statement: one
+  starting_point: MyText
+  gps_starting_point: 1.5
+  end_point: MyText
+  gps_end_point: 1.5
+  paid: false
+  cancelled: false
+  price: 9.99
+  order_description: MyText
+
+two:
+  user: two
+  driver: two
+  payment: two
+  store: two
+  statement: two
+  starting_point: MyText
+  gps_starting_point: 1.5
+  end_point: MyText
+  gps_end_point: 1.5
+  paid: false
+  cancelled: false
+  price: 9.99
+  order_description: MyText

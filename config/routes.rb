@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :requests
   devise_for :drivers, path: 'drivers', controllers: {
     sessions: 'drivers/sessions',
     registrations: 'drivers/registrations'
