@@ -43,9 +43,8 @@
 <% if @request.documents.attached? %>
   <p>
   <strong>Documents:</strong>
-  <br>
   <% @request.documents.each do |document| %>
-    <li><%= image_tag document.variant(resize: "300x300") %></li>
+    <%= link_to(document.filename, rails_blob_path(document, disposition: "attachment")) %>
   <% end %>
   </p>
 <% end %>
