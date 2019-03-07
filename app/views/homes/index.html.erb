@@ -4,8 +4,14 @@
 					<h2>UBERTAIL</h2>
 					<p>App para solicitar servicios de entrega, de productos comprados en tiendas con tipo de despacho retiro en tienda</p>
 					<ul class="actions special">
-						<li><%= link_to "Inicia sesion", sesion_path, class:"button primary" %></li>
-      			<li><%= link_to "Registrate", registro_path, class:"button" %></li>
+					<% if user_signed_in? %>
+						<li><%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete, class:"button primary" %></li>
+					<% elsif driver_signed_in? %>
+						<li><%= link_to "Cerrar sesion", destroy_driver_session_path, method: :delete , class:"button primary" %></li>
+					<% else %>
+						<li><%= link_to "Inicia sesion", sesion_path, class:"button primary"%></li>
+						<li><%= link_to "Registrate", registro_path, class:"button"%></li>
+					<% end %>
 					</ul>
 				</section>
 
@@ -26,21 +32,22 @@
 								<p>Los cuales se adapten a las dimensiones del envio, para lograr una mayor seguridad y eficacia del servicio</p>
 							</section>
 							<section>
-								<span class="icon major fa-area-chart accent3"></span>
-								<h3>Ipsum dolor</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+								<span class="icon major far fa-clock accent5"></span>
+								<h3>Tiempo de respuesta</h3>
+								<p>Sabemos lo importante de sus envios, por eso ofrecemos excelentes tiempos de respuesta a nuestros clientes frente a sus requerimientos.</p>
 							</section>
 						</div>
 						<div class="features-row">
 							<section>
-								<span class="icon major fa-cloud accent4"></span>
-								<h3>Sed feugiat</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+								<span class="icon major fas fa-map-pin"></span>
+								<h3>Sigue tu envio</h3>
+								<p>Consultando el estado de cada solicitud para así verificar y mantenerte informado del proceso del envio </p>
 							</section>
 							<section>
 								<span class="icon major fa-lock accent5"></span>
 								<h3>Seguridad y eficacia</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+								<p>Tu tranquilidad es lo más importante
+								Nos comprometemos a ayudar a los usuarios y conductores para que lleguen a los productos a sus destinos sin preocupaciones.</p>
 							</section>
 						</div>
 					</section>
@@ -77,29 +84,22 @@
 			<!-- CTA -->
 				<section id="cta">
 
-					<h2>Sign up for beta access</h2>
-					<p>Blandit varius ut praesent nascetur eu penatibus nisi risus faucibus nunc.</p>
+					<h2>Cotiza tu envio</h2>
+					<p>Calcula una tarifa para tu próxima solicitud. Simplemente ingresa un punto de partida y un destino</p>
 
-					<form>
+					<%= form_with(url: '', local: true) do |f| %>
 						<div class="row gtr-50 gtr-uniform">
 							<div class="col-8 col-12-mobilep">
-								<input type="email" name="email" id="email" placeholder="Email Address" />
+								<%= f.text_field :starting_point, placeholder:"Ingresa punto de partida" %>
+							</div>
+							<div class="col-8 col-12-mobilep">
+								<%= f.text_field :end_point, placeholder:"Ingresa punto de llegada"  %>
 							</div>
 							<div class="col-4 col-12-mobilep">
-								<input type="submit" value="Sign Up" class="fit" />
+								<%= f.submit "Cotizar", class:"fit" %>
 							</div>
 						</div>
-					</form>
-
+					<% end  %>
 				</section>
-
-			<!-- Footer -->
-				<footer id="footer">
-					<ul class="icons">
-						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
-					</ul>
-				</footer>
 		</div>
 	</body>
