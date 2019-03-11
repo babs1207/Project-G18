@@ -4,11 +4,12 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
-      <li><%= link_to "HOME", root_path, class:"button" %></a></li>
     <% if user_signed_in? %>
       <li><%= link_to "Mis solicitudes", requests_path, class:"button" %></li>
       <li><%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete, class:"button" %></li>
     <% elsif driver_signed_in? %>
+      <li><%= link_to "Viajes", drivers_path, class:"button" %></li>
+      <li><%= link_to "Mis viajes", requests_path, class:"button" %></li>
       <li><%= link_to "Cerrar sesion", destroy_driver_session_path, method: :delete , class:"button" %></li>
     <% else %>
       <li><%= link_to "Inicia sesion", sesion_path, class:"button"%></li>

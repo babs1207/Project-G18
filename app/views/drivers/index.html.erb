@@ -1,0 +1,16 @@
+<h1 class="text-center"><strong>VIAJES</strong></h1>
+
+<div class="row">
+  <% @viajes.each do |viaje|  %>
+    <div class="card col-12 col-sm-6 col-md-3 text-center p-3">
+      <div class="card-body">
+        <h5 class="card-title"><strong>Usuario</strong>: <%= viaje.user.name %></h5>
+        <h5 class="card-title"><strong>Inicio</strong>: <%= viaje.starting_point %></h5>
+        <h5 class="card-title"><strong>Destino</strong>: <%= viaje.end_point %></h5>
+        <h5 class="card-title"><strong>Descripcion</strong>: <%= viaje.order_description %></h5>
+        <h6 class="card-title"><strong>Precio</strong>: $<%= viaje.price %></h6>
+        <%= link_to 'Aceptar', new_driver_registration_path, class:"btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -86,8 +86,7 @@
 
 					<h2>Cotiza tu envio</h2>
 					<p>Calcula una tarifa para tu próxima solicitud. Simplemente ingresa un punto de partida y un destino</p>
-
-					<%= form_with(url: '', local: true) do |f| %>
+					<%= form_with(url: 'homes', method: :get, local: true) do |f| %>
 						<div class="row gtr-50 gtr-uniform">
 							<div class="col-8 col-12-mobilep">
 								<%= f.text_field :starting_point, placeholder:"Ingresa punto de partida" %>
