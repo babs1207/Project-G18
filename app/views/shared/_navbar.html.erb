@@ -5,6 +5,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
     <% if user_signed_in? %>
+      <li><%= link_to "Ingresar solicitud", new_request_path, class:"button" %></li>
       <li><%= link_to "Mis solicitudes", requests_path, class:"button" %></li>
       <li><%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete, class:"button" %></li>
     <% elsif driver_signed_in? %>
