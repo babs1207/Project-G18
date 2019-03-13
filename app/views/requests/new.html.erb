@@ -1,8 +1,37 @@
-<h1 class="text-center"><strong>NUEVA SOLICITUD</strong></h1>
-
-<div class="container">
-
-<%= render 'form', request: @request %>
+<h3 class="text-center"><strong>NUEVA SOLICITUD</strong></h3>
+<div class="container-fluid">
+<div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 left-fixed">
+      <div class="content">
+        <%= render 'form', request: @request %>
+      </div>
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 right-relative">
+      <div style='width: 800px;'>
+        <div id="map" style='width: 1000px; height: 500px;'></div>
+      </div>
+    </div>
+  </div>
 
 <%= link_to 'Back', requests_path %>
 </div>
+
+<script>
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers([
+      {
+        "lat": 0,
+        "lng": 0,
+        "picture": {
+          "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
+          "width":  32,
+          "height": 32
+        },
+        "infowindow": "hello!"
+      }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+</script>

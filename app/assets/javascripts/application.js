@@ -11,7 +11,6 @@
 // about supported directives.
 //
 
-
 //= require jquery.min
 //= require jquery.dropotron.min
 //= require jquery.scrollex.min
@@ -22,6 +21,8 @@
 
 //= require rails-ujs
 //= require activestorage
+//= require underscore
+//= require gmaps/google
 //= require turbolinks
 //= require_tree .
 
