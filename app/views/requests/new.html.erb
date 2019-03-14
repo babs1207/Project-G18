@@ -1,24 +1,46 @@
-<h3 class="text-center"><strong>NUEVA SOLICITUD</strong></h3>
-<div class="container-fluid">
-<div class="row">
-    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 left-fixed">
-      <div class="content">
-        <%= render 'form', request: @request %>
+  <h3 class="text-center"><strong>NUEVA SOLICITUD</strong></h3>
+  <div class="container-fluid">
+  <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 left-fixed">
+        <div class="content">
+          <%= form_with(model: @request, local: true) do |form| %>
+            <div class="field">
+              <%= form.label :starting_point, "Punto de partida" %>
+              <%= form.text_field :starting_point, id: 'start' %><br>
+            </div>
+
+            <div class="field">
+              <%= form.label :end_point, "Destino" %>
+              <%= form.text_field :end_point, id: 'end' %><br>
+            </div>
+
+            <div class="field">
+              <%= form.label :order_description, "Descripcion de la orden" %>
+              <%= form.text_area :order_description %><br>
+            </div>
+
+            <div class="field">
+              <%= form.label :documents ,"Ingresa boleta, foto del rut, y autorizacion" %>
+              <%= form.file_field :documents, multiple: true %>
+            </div>
+
+      <div class="actions">
+        <%= form.submit 'Enviar'%>
+      </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 right-relative">
+        <div style='width: 800px;'>
+          <div id="map" style='width: 1000px; height: 500px;'></div>
+        </div>
       </div>
     </div>
-    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 right-relative">
-      <div style='width: 800px;'>
-        <div id="map" style='width: 1000px; height: 500px;'></div>
-      </div>
-    </div>
+
+  <%= link_to 'Back', requests_path, class:"button alt" %>
   </div>
 
-<%= link_to 'Back', requests_path %>
-</div>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyTdymd4EuPhprEVIVbC59mgmNSmucZ-o&callback=initMap">
+  </script>
 
-<script>
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  markers = handler.addMarkers(<%=raw @hash.to_json %>);
-  });
-</script>
