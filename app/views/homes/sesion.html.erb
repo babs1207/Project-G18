@@ -1,3 +1,23 @@
-<h1>Sesion</h1>
-<%= link_to "Inicia como conductor", new_driver_session_path %>
-<%= link_to "Inicia como usuario", new_user_session_path %>
+<div class="container">
+    <h3 class="text-center"><strong>Iniciar sesión</strong></h3>
+    <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><strong>Iniciar sesión como usuario</strong></h3>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <%= link_to "Iniciar sesión", new_user_session_path, class:"button alt" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><strong>Iniciar sesión como conductor</strong></h3>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <%= link_to "Inicia sesión", new_driver_session_path, class:"button alt" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

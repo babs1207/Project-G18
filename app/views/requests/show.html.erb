@@ -1,70 +1,60 @@
 <div class="container">
-
-<p>
-  <strong>User:</strong>
-  <%= @request.user.name %>
-</p>
-
-<p>
-  <strong>Driver:</strong>
-  <%= @request.driver %>
-</p>
-
-<p>
-  <strong>Payment:</strong>
-  <%= @request.payment %>
-</p>
-
-<p>
-  <strong>Store:</strong>
-  <%= @request.store %>
-</p>
-
-<p>
-  <strong>Statement:</strong>
-  <%= @request.statement %>
-</p>
-
-<p>
-  <strong>Starting point:</strong>
-  <%= @request.starting_point %>
-</p>
-
-<p>
-  <strong>End point:</strong>
-  <%= @request.end_point %>
-</p>
-
-<p>
-  <strong>Order description:</strong>
-  <%= @request.order_description %>
-</p>
-
-<% if @request.documents.attached? %>
   <p>
-  <strong>Documents:</strong>
-  <% @request.documents.each do |document| %>
-    <%= link_to(document.filename, rails_blob_path(document, disposition: "attachment")) %>
-  <% end %>
+    <strong>Usuario solicitante:</strong>
+    <%= @request.user.name %>
   </p>
-<% end %>
 
-<p>
-  <strong>Paid:</strong>
-  <%= @request.paid %>
-</p>
+  <p>
+    <strong>Conductor:</strong>
+    <%= @request.driver %>
+  </p>
 
-<p>
-  <strong>Cancelled:</strong>
-  <%= @request.cancelled %>
-</p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @request.price %>
-</p>
+  <p>
+    <strong>Store:</strong>
+    <%= @request.store %>
+  </p>
 
-<%= link_to 'Edit', edit_request_path(@request) %> |
-<%= link_to 'Back', requests_path %>
+  <p>
+    <strong>Estado:</strong>
+    <%= @request.statement %>
+  </p>
 
+  <p>
+    <strong>Punto de partida:</strong>
+    <%= @request.starting_point %>
+  </p>
+
+  <p>
+    <strong>Destino:</strong>
+    <%= @request.end_point %>
+  </p>
+
+  <p>
+    <strong>Descripción de la orden:</strong>
+    <%= @request.order_description %>
+  </p>
+
+  <% if @request.documents.attached? %>
+    <p>
+    <strong>Documentos:</strong>
+    <% @request.documents.each do |document| %>
+      <%= link_to(document.filename, rails_blob_path(document, disposition: "attachment")) %>
+    <% end %>
+    </p>
+  <% end %>
+
+  <p>
+    <strong>Paid:</strong>
+    <%= @request.paid %>
+  </p>
+
+
+  <p>
+    <strong>Precio:</strong>
+    <%= @request.price %>
+  </p>
+
+  <%= link_to 'Edit', edit_request_path(@request), class:"button alt" %> 
+  <%= link_to 'Back', requests_path, class:"button alt" %>
 </div>

@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   }
 
   resources :homes, only: [:index]
-
   get 'homes/registro', to: 'homes#registro', as: 'registro' 
   get 'homes/sesion', to: 'homes#sesion', as: 'sesion'
 
