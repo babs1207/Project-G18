@@ -4,4 +4,11 @@ class Driver < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :requests
+
+  def acept_request(request_id)
+    request = Request.find(request_id)
+    self.requests << request
+    request.set_status_acept
+  end
+
 end

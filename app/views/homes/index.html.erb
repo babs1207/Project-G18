@@ -9,8 +9,8 @@
 					<% elsif driver_signed_in? %>
 						<li><%= link_to "Cerrar sesion", destroy_driver_session_path, method: :delete , class:"button primary" %></li>
 					<% else %>
-						<li><%= link_to "Inicia sesion", sesion_path, class:"button primary"%></li>
-						<li><%= link_to "Registrate", registro_path, class:"button"%></li>
+						<li><%= link_to "Inicia sesion", sesion_homes_path, class:"button primary"%></li>
+						<li><%= link_to "Registrate", registro_homes_path, class:"button"%></li>
 					<% end %>
 					</ul>
 				</section>

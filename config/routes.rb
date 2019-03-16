@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
-  resources :drivers, only: :index
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  resources :drivers, only: :index do
+    collection do 
+      get :perfil
+      get :my_requests
+    end
+    member do 
+      post :acept
+    end
+  end
   resources :requests
   devise_for :drivers, path: 'drivers', controllers: {
     sessions: 'drivers/sessions',
@@ -12,10 +22,14 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks' 
   }
 
-  resources :homes, only: [:index]
-  get 'homes/registro', to: 'homes#registro', as: 'registro' 
-  get 'homes/sesion', to: 'homes#sesion', as: 'sesion'
+  resources :homes, only: [:index] do
+    collection do 
+      get :registro
+      get :sesion
+    end
+  end
 
+  
   root 'homes#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

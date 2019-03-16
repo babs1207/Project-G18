@@ -1,40 +1,5 @@
 <div class="container-fluid">
-  <h3 class="text-center"><strong>SOLICITUDES</strong></h3>
-
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Usuario solicitante</th>
-        <th>Conductor</th>
-        <th>Estado</th>
-        <th>Punto de partida</th>
-        <th>Destino</th>
-        <th>Descripción de la orden</th>
-        <th>Fecha de ingreso</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @requests.each do |request| %>
-        <tr>
-          <td><%= request.user.name %></td>
-          <td><%= request.driver%></td>
-          <td><%= request.statement %></td>
-          <td><%= request.starting_point %></td>
-          <td><%= request.end_point %></td>
-          <td><%= request.order_description %></td>
-          <td><%= request.created_at.strftime("%d-%m-%Y") %></td>
-          <td><%= link_to 'Show', request, class:"btn btn-primary" %></td>
-          <td><%= link_to 'Edit', edit_request_path(request), class:"btn btn-success" %></td>
-          <td><%= link_to 'Cancelar', request, method: :delete, data: { confirm: 'Estas seguro' }, class:"btn btn-danger" %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <br>
-
+  <%= render 'table', driver: false %><br>
   <%= link_to 'Ingresar nueva solicitud', new_request_path, class:"button alt" %>
 </div>
 

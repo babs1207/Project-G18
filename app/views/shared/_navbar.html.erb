@@ -15,16 +15,16 @@
       <li><%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete, class:"button" %></li>
     <% elsif driver_signed_in? %>
       <li>
-        <%= link_to root_path, class:"button" do %>
+        <%= link_to perfil_drivers_path, class:"button" do %>
           <i class="fas fa-user"></i>
         <% end  %>
       </li>
       <li><%= link_to "Viajes", drivers_path, class:"button" %></li>
-      <li><%= link_to "Mis viajes", requests_path, class:"button" %></li>
+      <li><%= link_to "Mis viajes", my_requests_drivers_path, class:"button" %></li>
       <li><%= link_to "Cerrar sesion", destroy_driver_session_path, method: :delete , class:"button" %></li>
     <% else %>
-      <li><%= link_to "Inicia sesion", sesion_path, class:"button"%></li>
-      <li><%= link_to "Registrate", registro_path, class:"button"%></li>
+      <li><%= link_to "Inicia sesion", sesion_homes_path, class:"button"%></li>
+      <li><%= link_to "Registrate", registro_homes_path, class:"button"%></li>
     <% end %>
     </ul>
   </div>

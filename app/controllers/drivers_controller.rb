@@ -7,5 +7,14 @@ class DriversController < ApplicationController
       @viajes = Request.all
     end
   end
+
+  def my_requests
+    @requests = current_driver.requests
+  end
+
+  def acept
+    current_driver.acept_request(params[:request_id])
+    redirect_to my_requests_drivers_path
+  end
   
 end
