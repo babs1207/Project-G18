@@ -12,8 +12,8 @@ class Request < ApplicationRecord
     cancel: 'Cancelada'
   }
     
-
-  before_create :set_default_status
+  BASE_PRICE = 1000
+  before_create :set_default_status, :set_price
 
   def set_default_status
     self.status = STATUS[:initialized]
@@ -38,4 +38,24 @@ class Request < ApplicationRecord
     self.status = STATUS[:cancel]
     self.save
   end
+
+  def set_price
+    distance = get_distance
+    if distance > 1
+      self.price = BASE_PRICE * distance
+    else
+      self.price = BASE_PRICE
+    end 
+  end
+
+  def get_distance
+    list_start = Geocoder.search(self.starting_point)
+    coordinate_start = list_start.first.coordinates
+
+    list_end = Geocoder.search(self.end_point)
+    coordinate_end = list_end.first.coordinates
+
+    (Geocoder::Calculations.distance_between(coordinate_start, coordinate_end)).round
+  end
+
 end

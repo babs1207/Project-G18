@@ -4,7 +4,7 @@ class DriversController < ApplicationController
     if params[:buscador].present? && params[:buscador].length >2
       @results = Request.where('starting_point like ?', "%#{params[:buscador]}%")
     else
-      @viajes = Request.all
+      @viajes = Request.where(status: Request::STATUS[:initialized])
     end
   end
 
