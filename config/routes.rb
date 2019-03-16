@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
   resources :drivers, only: :index do
     collection do 
       get :perfil
@@ -8,8 +9,17 @@ Rails.application.routes.draw do
     end
     member do 
       post :acept
+      post :progress
     end
   end
+
+  resources :users, only: :index do
+    member do 
+      post :delivered
+      post :cancel
+    end
+  end 
+
   resources :requests
   devise_for :drivers, path: 'drivers', controllers: {
     sessions: 'drivers/sessions',

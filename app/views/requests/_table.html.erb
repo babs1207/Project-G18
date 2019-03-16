@@ -30,8 +30,13 @@
         <td><%= request.created_at.strftime("%d-%m-%Y") %></td>
         <td><%= link_to 'Show', request, class:"btn btn-primary" %></td>
         <td><%= link_to 'Edit', edit_request_path(request), class:"btn btn-success" %></td>
-        <td><%= link_to 'Cancelar', request, method: :delete, data: { confirm: 'Estas seguro' }, class:"btn btn-danger" %></td>
-        <td><%= link_to 'Ir', request, class:"btn btn-primary" %></td>
+        <% if current_driver %>
+          <td><%= link_to_if (request.status == Request::STATUS[:acepted]), 'Ir', progress_driver_path(request), class:"btn btn-success", method: :post %></td>
+        <% end %>
+        <% if current_user %>
+         <td><%= link_to_if (request.status == Request::STATUS[:in_progress]), 'Recibido', delivered_user_path(request), class:"btn btn-success", method: :post %></td>
+         <td><%= link_to_if ([Request::STATUS[:initialized],Request::STATUS[:acepted]].include? request.status), 'Cancelar', cancel_user_path(request), class:"btn btn-success", method: :post %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

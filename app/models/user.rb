@@ -12,4 +12,15 @@ class User < ApplicationRecord
     user.name = auth.info.name
     end
    end
+
+   def delivered_request(request_id)
+    request = Request.find(request_id)
+    request.set_status_delivered
+  end
+
+  def cancel_request(request_id)
+    request = Request.find(request_id)
+    request.set_status_cancel
+  end
+
 end

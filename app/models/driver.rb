@@ -11,4 +11,9 @@ class Driver < ApplicationRecord
     request.set_status_acept
   end
 
+  def progress_request(request_id)
+    request = Request.find(request_id)
+    request.set_status_progress
+  end
+
 end

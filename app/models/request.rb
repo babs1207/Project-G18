@@ -23,4 +23,19 @@ class Request < ApplicationRecord
     self.status = STATUS[:acepted]
     self.save
   end
+
+  def set_status_progress
+    self.status = STATUS[:in_progress]
+    self.save
+  end
+
+  def set_status_delivered
+    self.status = STATUS[:delivered]
+    self.save
+  end
+
+  def set_status_cancel
+    self.status = STATUS[:cancel]
+    self.save
+  end
 end
