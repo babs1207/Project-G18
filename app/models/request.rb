@@ -58,4 +58,8 @@ class Request < ApplicationRecord
     (Geocoder::Calculations.distance_between(coordinate_start, coordinate_end)).round
   end
 
+  def self.created_by_day
+    Request.group_by_day(:created_at).count
+   end
+
 end

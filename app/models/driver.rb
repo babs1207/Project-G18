@@ -3,8 +3,7 @@ class Driver < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :requests
-  has_many :vehicles
+  has_many :requests, dependent: :destroy
 
   def acept_request(request_id)
     request = Request.find(request_id)
