@@ -9,10 +9,14 @@
     <%= @request.status %>
   </p>
 
-  <p>
-    <strong>Conductor:</strong>
-    <%= @request.driver %>
-  </p>
+    <p>
+      <strong>Conductor:</strong>
+      <% if current_driver.present? %>
+        <%= @request.driver %>
+      <% else  %>
+        No asignado
+      <% end %>
+    </p>
 
   <p>
     <strong>Punto de partida:</strong>

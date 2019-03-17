@@ -21,6 +21,7 @@
       </li>
       <li><%= link_to "Viajes", drivers_path, class:"button" %></li>
       <li><%= link_to "Mis viajes", my_requests_drivers_path, class:"button" %></li>
+      <li><%= link_to "Mis vehiculos", my_requests_drivers_path, class:"button" %></li>
       <li><%= link_to "Cerrar sesion", destroy_driver_session_path, method: :delete , class:"button" %></li>
     <% else %>
       <li><%= link_to "Inicia sesion", sesion_homes_path, class:"button"%></li>

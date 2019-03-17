@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+  
 
   resources :drivers, only: :index do
     collection do 
       get :perfil
       get :my_requests
+      get :my_vehicles
     end
     member do 
       post :acept

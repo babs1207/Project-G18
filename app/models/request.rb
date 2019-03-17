@@ -42,7 +42,7 @@ class Request < ApplicationRecord
   def set_price
     distance = get_distance
     if distance > 1
-      self.price = BASE_PRICE * distance
+      self.price = 750 * distance
     else
       self.price = BASE_PRICE
     end 

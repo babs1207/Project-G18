@@ -22,7 +22,9 @@
       <tr>
         <td><%= request.user.name %></td>
         <% unless driver %>
-          <td><%= request.try(:driver).try(:name)%></td>
+          <td>
+            <%= request.try(:driver).try(:name)%>
+          </td>
         <% end %>
         <td><%= request.status %></td>
         <td><%= request.starting_point %></td>

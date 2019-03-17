@@ -21,5 +21,9 @@ class DriversController < ApplicationController
     current_driver.progress_request(params[:id])
     redirect_to my_requests_drivers_path
   end
+
+  def my_vehicles
+    @requests = current_driver.requests
+  end
   
 end
