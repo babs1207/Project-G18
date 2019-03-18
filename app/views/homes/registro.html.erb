@@ -1,6 +1,24 @@
-<h1>Registro</h1>
-	<ul class="actions special">
-    <li><%= link_to "Registrate como solicitante ", new_user_registration_path, class:"button alt" %></li>
-    </li><%= link_to "Registrate como conductor", new_driver_registration_path, class:"button alt" %></li>
-</ul>
-
+<title>Registro</title>
+<div class="container">
+    <h3 class="text-center"><strong>Registro</strong></h3>
+    <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><strong>Registrate como usuario</strong></h3>
+          <p class="card-text">Podras recibir tus productos desde tu comodidad realizando solicitudes, siguiendo el status de estas.</p>
+          <%= link_to "Registrate como usuario solicitante ", new_user_registration_path, class:"button alt" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><strong>Registrate como conductor</strong></h3>
+          <p class="card-text">Podras aceptar y realizar entregas con diferentes medios de transportes, generando más ingresos por entregas</p>
+          <%= link_to "Registrate como conductor", new_driver_registration_path, class:"button alt" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

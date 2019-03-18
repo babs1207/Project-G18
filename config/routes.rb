@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   resources :drivers, only: :index do
     collection do 
-      get :perfil
       get :my_requests
       get :my_vehicles
     end
@@ -20,6 +19,7 @@ Rails.application.routes.draw do
     member do 
       post :delivered
       post :cancel
+      post :paid
     end
   end 
 

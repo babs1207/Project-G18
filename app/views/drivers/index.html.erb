@@ -1,14 +1,14 @@
+<title>Viajes</title>
 <div class="container">
   <h3 class="text-center"><strong>VIAJES</strong></h3>
 
-  <h1>Buscador</h1>
   <form action="<% drivers_path %>">
     <input type="text" id="buscador" placeholder="Filtre por punto de partida">
   </form>
 
   <div class="row" id="viajes">
     <% @viajes.each do |viaje|  %>
-      <div class="card col-12 col-sm-6 col-md-3 text-center p-3">
+      <div class="card col-12 col-sm-12 col-md-6 text-center p-3">
         <div class="card-body">
           <%= form_with(url: acept_driver_path(current_driver.id)) do %>
             <%= hidden_field_tag "request_id", viaje.id %>
@@ -23,7 +23,6 @@
       </div>
     <% end %>
   </div>
-
 </div>
 <script>
   $('#buscador').keyup(function () { 

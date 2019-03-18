@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable,:omniauthable, omniauth_providers: %i[facebook]
-  has_many :requests
+  has_many :requests, dependent: :destroy
   
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -21,6 +21,11 @@ class User < ApplicationRecord
   def cancel_request(request_id)
     request = Request.find(request_id)
     request.set_status_cancel
+  end
+
+  def paid_request(request_id)
+    request = Request.find(request_id)
+    request.set_paid
   end
 
 end

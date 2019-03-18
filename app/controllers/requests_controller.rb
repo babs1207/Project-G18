@@ -29,7 +29,7 @@ class RequestsController < ApplicationController
 
     respond_to do |format|
       if @request.save
-        format.html { redirect_to @request, notice: 'Request was successfully created.' }
+        format.html { redirect_to @request, notice: 'Solicitud creada con éxito' }
         format.json { render :show, status: :created, location: @request }
       else
         format.html { render :new }

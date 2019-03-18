@@ -25,5 +25,10 @@ class DriversController < ApplicationController
   def my_vehicles
     @requests = current_driver.requests
   end
-  
+
+  private 
+
+  def driver_params
+    params.require(:driver).permit(:buscador, :request_id)
+  end
 end

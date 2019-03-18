@@ -4,6 +4,7 @@ class Driver < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :requests, dependent: :destroy
+  has_many_attached :documents
 
   def acept_request(request_id)
     request = Request.find(request_id)

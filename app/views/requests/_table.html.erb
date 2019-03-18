@@ -1,47 +1,61 @@
-
 <h3 class="text-center"><strong>SOLICITUDES</strong></h3>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Usuario solicitante</th>
-      <% unless driver  %>
-        <th>Conductor</th>
-      <% end %>
-      <th>Estado</th>
-      <th>Punto de partida</th>
-      <th>Destino</th>
-      <th>Descripción de la orden</th>
-      <th>Precio</th>
-      <th>Fecha de ingreso</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @requests.each do |request| %>
+<div class="table-responsive text-nowrap">
+  <table class="table table-striped table-dark">
+    <thead>
       <tr>
-        <td><%= request.user.name %></td>
-        <% unless driver %>
-          <td>
-            <%= request.try(:driver).try(:name)%>
-          </td>
-        <% end %>
-        <td><%= request.status %></td>
-        <td><%= request.starting_point %></td>
-        <td><%= request.end_point %></td>
-        <td><%= request.order_description %></td>
-        <td><%= request.price %></td>
-        <td><%= request.created_at.strftime("%d-%m-%Y") %></td>
-        <td><%= link_to 'Show', request, class:"btn btn-primary" %></td>
-        <td><%= link_to 'Edit', edit_request_path(request), class:"btn btn-success" %></td>
-        <% if current_driver %>
-          <td><%= link_to_if (request.status == Request::STATUS[:acepted]), 'Ir', progress_driver_path(request), class:"btn btn-success", method: :post %></td>
-        <% end %>
-        <% if current_user %>
-         <td><%= link_to_if (request.status == Request::STATUS[:in_progress]), 'Recibido', delivered_user_path(request), class:"btn btn-success", method: :post %></td>
-         <td><%= link_to_if ([Request::STATUS[:initialized],Request::STATUS[:acepted]].include? request.status), 'Cancelar', cancel_user_path(request), class:"btn btn-success", method: :post %></td>
-        <% end %>
+        <th>Usuario solicitante</th>
+        <th>Conductor</th>
+        <th>Estado</th>
+        <th>Punto de partida</th>
+        <th>Destino</th>
+        <th>Descripción de la orden</th>
+        <th>Precio</th>
+        <th>Abonado</th>
+        <th>Fecha de ingreso</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @requests.each do |request| %>
+        <tr>
+          <td><%= request.user.name %></td>
+          <td>
+            <% if request.status == Request::STATUS[:initialized] %>
+              No asignado
+            <% else  %>
+              <%= request.try(:driver).try(:name)%>
+            <% end %>
+          </td>
+          <td><%= request.status %></td>
+          <td><%= request.starting_point %></td>
+          <td><%= request.end_point %></td>
+          <td><%= request.order_description %></td>
+          <td><%= request.price %></td>
+          <td>
+          <% if request.paid == false %>
+            No
+          <% else %>
+           Si
+          <% end %>
+          </td>
+          <td><%= request.created_at.strftime("%d-%m-%Y") %></td>
+          <td><%= link_to 'Ver', request, class:"btn btn-info" %></td>
+          <% if current_user %>
+            <td><%= link_to_if (request.status == Request::STATUS[:initialized]), 'Editar', edit_request_path(request), class:"btn btn-success" %></td>
+          <% end %>
+          <% if current_driver %>
+            <td><%= link_to_if (request.status == Request::STATUS[:acepted]), 'Llevar', progress_driver_path(request), class:"btn btn-success", method: :post %></td>
+          <% end %>
+          <% if current_user %>
+          <td><%= link_to_if (request.status == Request::STATUS[:in_progress]), 'Recibido', delivered_user_path(request), class:"btn btn-success", method: :post %></td>
+          <td><%= link_to_if ([Request::STATUS[:initialized],Request::STATUS[:acepted]].include? request.status), 'Cancelar', cancel_user_path(request), class:"btn btn-danger", method: :post %></td>
+          <% end %>
+          <% if current_user %>
+           <td><%= link_to_if (request.status == Request::STATUS[:delivered] && request.paid == false), 'Pagar', paid_user_path(request), class:"btn btn-success", method: :post, data: {confirm: 'Estas seguro?'} %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

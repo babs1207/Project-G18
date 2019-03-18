@@ -10,6 +10,8 @@ ActiveAdmin.register Request do
     column :starting_point
     column :end_point
     column :order_description
+    column :price
+    column :paid
     column :created_at
     actions
   end

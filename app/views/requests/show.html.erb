@@ -1,4 +1,6 @@
+<title>Detalle solicitud</title>
 <div class="container">
+  <h3 class="text-center"><strong>DETALLE</strong></h3>
   <p>
     <strong>Usuario solicitante:</strong>
     <%= @request.user.name %>
@@ -11,10 +13,10 @@
 
     <p>
       <strong>Conductor:</strong>
-      <% if current_driver.present? %>
-        <%= @request.driver %>
-      <% else  %>
+      <% if @request.status == Request::STATUS[:initialized] %>
         No asignado
+      <% else  %>
+        <%= @request.try(:driver).try(:name) %>
       <% end %>
     </p>
 
@@ -37,22 +39,22 @@
     <p>
     <strong>Documentos:</strong>
     <% @request.documents.each do |document| %>
-      <%= link_to(document.filename, rails_blob_path(document, disposition: "attachment")) %>
+      <%= link_to(document.filename, rails_blob_path(document, disposition: "attachment"),class:"button alt") %>
     <% end %>
     </p>
   <% end %>
-
-  <p>
-    <strong>Paid:</strong>
-    <%= @request.paid %>
-  </p>
-
 
   <p>
     <strong>Precio:</strong>
     <%= @request.price %>
   </p>
 
-  <%= link_to 'Edit', edit_request_path(@request), class:"button alt" %> 
-  <%= link_to 'Back', requests_path, class:"button alt" %>
+  <p>
+    <strong>Abonado:</strong>
+    <%= @request.paid %>
+  </p>
+
+  <% if current_user && @request == Request::STATUS[:initialized] %>
+    <%= link_to 'Edit', edit_request_path(@request), class:"button alt" %> 
+  <% end %>
 </div>

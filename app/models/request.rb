@@ -3,7 +3,10 @@ class Request < ApplicationRecord
   belongs_to :driver, optional: true
   belongs_to :payment, optional:true
   has_many_attached :documents
-
+  validates :starting_point, presence: true
+  validates :end_point, presence: true
+  validates :order_description, presence: true
+  
   STATUS = {
     initialized: 'Iniciada',
     acepted: 'Aceptada',
@@ -37,6 +40,11 @@ class Request < ApplicationRecord
   def set_status_cancel
     self.status = STATUS[:cancel]
     self.save
+  end
+
+  def set_paid
+    self.paid = true
+    self.save 
   end
 
   def set_price

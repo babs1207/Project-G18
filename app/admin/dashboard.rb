@@ -18,8 +18,8 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Number" do
          ul do
           li "Total Users: #{User.count}"
-          li "Total Products: #{Request.count}"
-          li "Total Categories: #{Driver.count}"
+          li "Total Requests: #{Request.count}"
+          li "Total Drivers: #{Driver.count}"
          end
         end
       end
