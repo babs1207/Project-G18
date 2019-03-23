@@ -8,7 +8,7 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Recent User" do
           ul do
             User.last(5).map do |user|
-              li link_to(User.name, admin_user_path(user))
+              li link_to(user.name, admin_user_path(user))
             end
           end
         end
@@ -27,7 +27,7 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Recent Driver" do
           ul do
             Driver.last(5).map do |driver|
-              li link_to(Driver.name, admin_driver_path(driver))
+              li link_to(driver.name, admin_driver_path(driver))
             end
           end
         end
