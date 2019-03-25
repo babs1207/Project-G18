@@ -1,24 +1,29 @@
 # Envio express
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Web application that offers delivery services for products purchased in retail stores.
 
-* Ruby version
+[Link Heroku](https://quiet-scrubland-43742.herokuapp.com/)
+[Link Youtube](https://www.youtube.com/watch?v=1w0nMV8y5BA&feature=youtu.be)
 
-* System dependencies
+To clone or contribute the app, you must execute the following steps in the console, so that it can be opened:
 
-* Configuration
+* Install or update gems
+~~~
+bundle install
+~~~
 
-* Database creation
+* Create database
+~~~
+rails db:create
+~~~
 
-* Database initialization
+* Run migrations
+~~~
+rails db:migrate
+~~~
+* Run seed
+~~~
+rails db:seed
+~~~
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
